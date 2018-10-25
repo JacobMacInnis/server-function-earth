@@ -3,12 +3,11 @@
 const express = require('express');
 
 const User = require('../models/user');
-const QuizStat = require('../models/quizStat');
-const cscards = require('./../db/seed/cscards.json');
 
 const router = express.Router();
 
 router.post('/users', (req, res, next) => {
+  console.log('New Request');
   const { firstName, username, password } = req.body;
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
@@ -113,33 +112,5 @@ router.post('/users', (req, res, next) => {
       next(err);
     });
 });
-
-router.post('/stats',(req,res,next)=>{
-
-  const {username} = req.body;
-  return User.findOne({username})
-    .then(user =>{
-      return QuizStat.create({
-        userId: user._id,
-        recurringCorrect: 0,
-        totalQuestions:0,
-        questions:cscards,
-        head:0,
-        totalRight:0
-      });
-    })
-    
-    .then(result => {
-      return res.status(201).location('/api/users/${result.id}').json(result);
-    })
-    .catch(err => {
-      if (err.reason === 'ValidationError') {
-        return res.status(err.code).json(err);
-      }
-      next(err);
-    });
-});
-
-
 
 module.exports = router;

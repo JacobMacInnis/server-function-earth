@@ -23,7 +23,8 @@ app.use(morgan(process.env.NODE_ENV === 'development' ? 'dev' : 'common', {
 
 /*======CORS Middleware=====*/
 const corsOption = { 
-  origin: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  origin: true, 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }; app.use(cors(corsOption));
 
