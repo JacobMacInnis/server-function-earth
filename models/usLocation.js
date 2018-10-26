@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-const uslocationSchema = new mongoose.Schema({
+const usLocationSchema = new mongoose.Schema({
   zip_code: { type: Number },
   latitude : { type: Number },
   longitude: { type: Number },
@@ -10,4 +10,4 @@ const uslocationSchema = new mongoose.Schema({
   state: { type: String }
 });
 
-module.exports = mongoose.model('USLocation', uslocationSchema);
+module.exports = mongoose.model('USLocation', usLocationSchema);
