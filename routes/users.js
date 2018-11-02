@@ -16,7 +16,6 @@ const passport = require('passport');
 const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
 
 router.post('/users', (req, res, next) => {
-  console.log('New Request');
   const { firstName, username, password, location } = req.body;
   const requiredFields = ['username', 'password', 'firstName', 'location'];
   const missingField = requiredFields.find(field => !(field in req.body));
