@@ -11,6 +11,7 @@ const UserStats = require('../models/user-stats');
 const states = require('./../utils/states');
 const USLocation = require('./../models/usLocation');
 const countries = require('./../db/countries.json');
+const countryCodes = require('./../db/countryCodes.json');
 
 /*======Protect Endpoints Using JWT Strategy======*/
 const passport = require('passport');
@@ -18,7 +19,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 /*======POST /Users======*/
 router.post('/users', (req, res, next) => {
-  const { firstName, username, password, location } = req.body;
+  const { firstName, username, password } = req.body;
   const requiredFields = ['username', 'password', 'firstName'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -29,7 +30,7 @@ router.post('/users', (req, res, next) => {
       message: `Missing '${missingField}' in request body`,
       location: missingField
     });
-  };
+  }
   const stringFields = ['username', 'password', 'firstName'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
@@ -42,7 +43,7 @@ router.post('/users', (req, res, next) => {
       message: 'Incorrect field type: expected string',
       location: nonStringField
     });
-  };
+  }
   
   const explicityTrimmedFields = ['username', 'password', 'firstName'];
   const nonTrimmedField = explicityTrimmedFields.find(
@@ -56,7 +57,7 @@ router.post('/users', (req, res, next) => {
       message: 'Cannot start or end with whitespace',
       location: nonTrimmedField
     });
-  };
+  }
 
   const sizedFields = {
     username: {
@@ -89,7 +90,7 @@ router.post('/users', (req, res, next) => {
           .max} characters long`,
       location: tooSmallField || tooLargeField
     });
-  };
+  }
   User.find({ username })
     .count()
     .then(count => {
@@ -101,7 +102,7 @@ router.post('/users', (req, res, next) => {
           message: 'Username already taken',
           location: 'username'
         });
-      };
+      }
       return User.hashPassword(password);
     })
     .then(hash => {
@@ -126,16 +127,15 @@ router.post('/users', (req, res, next) => {
 
 router.post('/users/stats', jwtAuth, (req,res,next)=>{
   const userId = req.user._id;
-  const { country, city, state } = req.body;
+  let { country, city, state } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
-  const requiredFields = ['country'];
+  const requiredFields = ['country', 'state', 'city'];
   const missingField = requiredFields.find(field => !(field in req.body));
-
   if (missingField) {
     return res.status(422).json({
       code: 422,
@@ -157,7 +157,6 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: nonStringField
     });
   }
-  
   const explicityTrimmedFields = ['country', 'city', 'state'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
@@ -171,7 +170,6 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: nonTrimmedField
     });
   }
-
   const sizedFields = {
     country: {
       min: 2,
@@ -208,10 +206,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
           .max} characters long`,
       location: tooSmallField || tooLargeField
     });
-  };
-
-  let location = {};
-
+  }
   // VALIDATE COUNTRY 
   let Country = '';
   if (country.length > 2) {
@@ -220,9 +215,30 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       .split(' ')
       .map(letters => letters.charAt(0).toUpperCase() + letters.substring(1))
       .join(' ');
-    // countries = [{"name": "Afghanistan", "code": "AF"},{"name": "Åland Islands","code": "AX"}
-    countries.find(country => countries.name === country);
 
+    if (countries.find(ct => ct === country) === undefined) {
+      return res.status(422).json({
+        code: 422,
+        reason: 'ValidationError',
+        message: '`Country` was not found',
+        location: country
+      });
+    }
+  } 
+  else if (country.length === 2) {
+    country = country.toUpperCase();
+    if (countryCodes.find(ct => ct.slice(0,2) === country) === undefined) {
+      return res.status(422).json({
+        code: 422,
+        reason: 'ValidationError',
+        message: '`Country code` was not found',
+        location: country
+      });
+    } 
+    else {
+      country = countryCodes.find(ct => ct.slice(0,2) === country).split(':')[1];
+    }
+  }
 
   // VALIDATE CITY
   city = city.trim()
@@ -230,47 +246,34 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
     .split(' ')
     .map(letters => letters.charAt(0).toUpperCase() + letters.substring(1))
     .join(' ');
-  location.city = city;
   
   // VALIDATE STATE
   state = state.trim()
-    .toLowerCase()
-    if (state.length > 2) {
-      state = state.toLowerCase();
-      if (states.hasOwnProperty(state)) {
-          state = states[state];
-          location.state = state;
-        } else {
-          const err = new Error('State can not be found');
-          err.status = 400;
-          err.reason = 'State can not be found in the US State-database'
-          err.location = 'State'
-          return next(err);
-        }
+    .toLowerCase();
+  if (state.length > 2) {
+    state = state.toLowerCase();
+    if (states.hasOwnProperty(state)) {
+      state = states[state];
+      location.state = state;
     } else {
-      state = state.toUpperCase().trim();
-      filter.state = state;
+      const err = new Error('State can not be found');
+      err.status = 400;
+      err.reason = 'State can not be found in the US State-database';
+      err.location = 'State';
+      return next(err);
     }
+  } else {
+    state = state.toUpperCase().trim();
   }
-  return USLocation.findOne(filter)
-    .then(location => {
-      if (location === null || undefined) {
-        const err = new Error('The location was not found');
-        err.status = 404;
-        return Promise.reject(err);
-      }
-      city = location.city;
-      state = location.state;
-    });
-  
+
   return User.findOne({_id: userId})
     .then(user =>{
-      
       return UserStats.create({
         userId: user._id,
         username: user.username,
-        state: user.state,
-        city: user.city,
+        country: country,
+        state: state,
+        city: city,
       });
     })
     .then(result => {
