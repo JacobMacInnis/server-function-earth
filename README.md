@@ -69,6 +69,6 @@ Humanity does things that ensure a healthier and lasting planet on a daily basis
 
 <h3 align='center'>Developed By</h3>
 
-<div align='center'><img src="https://avatars3.githubusercontent.com/u/39195676?s=400&v=4" align='center' width="100px;"/></div>
+<div align='center'><img src="https://avatars3.githubusercontent.com/u/39195676?s=400&v=4" width="100px;"/></div>
 
-<a href='https://github.com/JacobMacInnis' style='text-decoration:none;text-align:center' align='center'>Jacob MacInnis</a>
+<div align='center'><a href='https://github.com/JacobMacInnis' style='text-decoration:none'>Jacob MacInnis</a></div>
