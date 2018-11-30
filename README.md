@@ -2,8 +2,8 @@
 	Function Earth
 </h1>
 
-<div align='center'>![React](https://img.shields.io/badge/react-16.6.0%2B-blue.svg) [![npm version](https://img.shields.io/badge/npm%20package-6.4.1-orange.svg)](https://badge.fury.io/js/npm)
-![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)</div>
+![React](https://img.shields.io/badge/react-16.6.0%2B-blue.svg) [![npm version](https://img.shields.io/badge/npm%20package-6.4.1-orange.svg)](https://badge.fury.io/js/npm)
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 
 <h3 align="center">
 	Log your good deeds!
@@ -69,6 +69,5 @@ Humanity does things that ensure a healthier and lasting planet on a daily basis
 
 <h3 align='center'>Developed By</h3>
 
-| <img src="https://avatars3.githubusercontent.com/u/39195676?s=400&v=4"  width="100px;"/> |
-| :----: |
-[Jacob MacInnis](https://github.com/JacobMacInnis) |
+<img src="https://avatars3.githubusercontent.com/u/39195676?s=400&v=4"  align='center' width="100px;"/>
+<a href='https://github.com/JacobMacInnis' style='text-decoration:none' align='center'>Jacob MacInnis</a>
