@@ -12,7 +12,7 @@
 
 <p align="center">
 	<strong>
-		<a href="https://github.com/thinkful-ei23/think-programming-server" target="_blank">GitHub Client</a>
+		<a href="https://github.com/JacobMacInnis/function-earth" target="_blank">GitHub Client</a>
     </strong>
 </p>
 
