@@ -1,6 +1,6 @@
-#Function Earth
+# Function Earth
 
-![React](https://img.shields.io/badge/react-16.6.0%2B-blue.svg) [![npm version](https://img.shields.io/badge/npm%20package-6.4.1-orange.svg)](https://badge.fury.io/js/npm) [![Build Status]]
+![React](https://img.shields.io/badge/react-16.6.0%2B-blue.svg) [![npm version](https://img.shields.io/badge/npm%20package-6.4.1-orange.svg)](https://badge.fury.io/js/npm)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg) [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)]
 
 <h3 align="center">
@@ -58,14 +58,15 @@ Humanity does things that ensure a healthier and lasting planet on a daily basis
 * Heroku
 * mlab
 
-## ORIGINAL WIREFRAME DESIGNS
-
-| <img alt="Function Earth Wireframes" src="https://github.com/JacobMacInnis/function-earth/blob/master/assets/images/FunctionEarthWF.jpg?raw=true" width="600">
+<h2 align="center">
+	ORIGINAL WIREFRAME DESIGNS
+</h2>
+| <img alt="Function Earth Wireframes" src="https://github.com/JacobMacInnis/function-earth/blob/master/assets/images/FunctionEarthWF.jpg?raw=true" width="800">
 |:--:|
 | Landing/Search Page | User Saved Locations |Unsucessful Search | Logged In User Flow |
 
 
-### Developers
+### Developed By
 
 | <img src="https://avatars3.githubusercontent.com/u/39195676?s=400&v=4" width="100px;"/> |
 | :----: |
