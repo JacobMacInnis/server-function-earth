@@ -19,10 +19,11 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 /*======POST /Users======*/
 router.post('/users', (req, res, next) => {
+  console.log('HEY I AM HERE 1')
   const { firstName, username, password } = req.body;
   const requiredFields = ['username', 'password', 'firstName'];
   const missingField = requiredFields.find(field => !(field in req.body));
-
+  
   if (missingField) {
     return res.status(422).json({
       code: 422,
@@ -44,7 +45,7 @@ router.post('/users', (req, res, next) => {
       location: nonStringField
     });
   }
-  
+  console.log('HEY I AM HERE 2')
   const explicityTrimmedFields = ['username', 'password', 'firstName'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
@@ -91,6 +92,7 @@ router.post('/users', (req, res, next) => {
       location: tooSmallField || tooLargeField
     });
   }
+  console.log('HEY I AM HERE 3')
   User.find({ username })
     .count()
     .then(count => {
