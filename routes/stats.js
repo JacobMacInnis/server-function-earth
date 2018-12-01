@@ -10,9 +10,7 @@ const UserStats = require('../models/user-stats');
 
 /*======GET /Stats======*/
 router.get('/stats', (req, res, next) => {
-  console.log('here1');
   const userId = req.user._id;
-  console.log('here?');
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
@@ -20,7 +18,6 @@ router.get('/stats', (req, res, next) => {
   }
   return UserStats.findOne({userId})
     .then(statsObject => {
-      console.log(statsObject);
       res.json(statsObject);
     })
     .catch(err => {
