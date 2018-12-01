@@ -19,7 +19,6 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 /*======POST /Users======*/
 router.post('/users', (req, res, next) => {
-  console.log('HEY I AM HERE 1')
   const { firstName, username, password } = req.body;
   const requiredFields = ['username', 'password', 'firstName'];
   const missingField = requiredFields.find(field => !(field in req.body));
@@ -45,7 +44,6 @@ router.post('/users', (req, res, next) => {
       location: nonStringField
     });
   }
-  console.log('HEY I AM HERE 2')
   const explicityTrimmedFields = ['username', 'password', 'firstName'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
@@ -92,7 +90,6 @@ router.post('/users', (req, res, next) => {
       location: tooSmallField || tooLargeField
     });
   }
-  console.log('HEY I AM HERE 3')
   User.find({ username })
     .count()
     .then(count => {
@@ -129,14 +126,13 @@ router.post('/users', (req, res, next) => {
 
 router.post('/users/stats', jwtAuth, (req,res,next)=>{
   const userId = req.user._id;
-  let { country, city, state } = req.body;
-
+  let { country, city, stateRegion } = req.body;
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
     return next(err);
   }
-  const requiredFields = ['country', 'state', 'city'];
+  const requiredFields = ['country', 'stateRegion'];
   const missingField = requiredFields.find(field => !(field in req.body));
   if (missingField) {
     return res.status(422).json({
@@ -146,7 +142,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: missingField
     });
   }
-  const stringFields = ['country', 'city', 'state'];
+  const stringFields = ['country', 'city', 'stateRegion'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -159,7 +155,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: nonStringField
     });
   }
-  const explicityTrimmedFields = ['country', 'city', 'state'];
+  const explicityTrimmedFields = ['country', 'city', 'stateRegion'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
   );
@@ -181,7 +177,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       min: 2,
       max: 50
     },
-    state: {
+    stateRegion: {
       min: 2,
       max: 50
     }
@@ -241,31 +237,35 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       country = countryCodes.find(ct => ct.slice(0,2) === country).split(':')[1];
     }
   }
+    
+  //VALIDATE STATE
+  if (country === 'United States') {
+    stateRegion = stateRegion.trim()
+      .toLowerCase();
+    if (stateRegion.length > 2) {
+      stateRegion = stateRegion.toLowerCase();
+      if (states.hasOwnProperty(stateRegion)) {
+        stateRegion = states[stateRegion];
+        location.state = stateRegion;
+      } else {
+        const err = new Error('State can not be found');
+        err.status = 400;
+        err.reason = 'State can not be found in the US State-database';
+        err.location = 'State';
+        return next(err);
+      }
+    } else {
+      stateRegion = stateRegion.toUpperCase().trim();
+    }
+  }
 
   // VALIDATE CITY
-  city = city.trim()
-    .toLowerCase()
-    .split(' ')
-    .map(letters => letters.charAt(0).toUpperCase() + letters.substring(1))
-    .join(' ');
-  
-  // VALIDATE STATE
-  state = state.trim()
-    .toLowerCase();
-  if (state.length > 2) {
-    state = state.toLowerCase();
-    if (states.hasOwnProperty(state)) {
-      state = states[state];
-      location.state = state;
-    } else {
-      const err = new Error('State can not be found');
-      err.status = 400;
-      err.reason = 'State can not be found in the US State-database';
-      err.location = 'State';
-      return next(err);
-    }
-  } else {
-    state = state.toUpperCase().trim();
+  if (city !== 'none') {
+    city = city.trim()
+      .toLowerCase()
+      .split(' ')
+      .map(letters => letters.charAt(0).toUpperCase() + letters.substring(1))
+      .join(' ');
   }
 
   return User.findOne({_id: userId})
@@ -274,7 +274,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
         userId: user._id,
         username: user.username,
         country: country,
-        state: state,
+        stateRegion: stateRegion,
         city: city,
       });
     })
