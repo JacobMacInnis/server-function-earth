@@ -10,11 +10,10 @@ const UserStats = require('../models/user-stats');
 
 /*======POST /Entries======*/
 router.post('/entries', (req, res, next) => {
-  console.log('here1');
   const userId = req.user._id;
   const { entry } = req.body;
   console.log('here too')
-  console.log('here?', entry);
+  console.log('here?', req.body);
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
