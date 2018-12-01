@@ -11,9 +11,9 @@ const UserStats = require('../models/user-stats');
 /*======POST /Entries======*/
 router.post('/entries', (req, res, next) => {
   const userId = req.user._id;
-  const { entry } = req.body;
-  console.log('here too')
-  console.log('here?', req.body);
+  const { country, stateRegion, entry } = req.body;
+  
+  console.log('country:', country, 'stateRegion', stateRegion, 'entry:', entry);
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
     err.status = 400;
