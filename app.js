@@ -45,7 +45,7 @@ app.get('/api/test', (req, res) => res.send('Hello World!'));
 app.use('/api', usersRouter);
 app.use('/api/auth', authRouter);
 app.use('/api', jwtAuth, statsRouter);
-app.use('./api', jwtAuth, entriesRouter);
+app.use('/api', jwtAuth, entriesRouter);
 
 /*=======Custom 404 Not Found route handler=======*/
 app.use((req, res, next) => {
