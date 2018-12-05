@@ -3,6 +3,9 @@
 const mongoose = require('mongoose');
 
 const globalStats = new mongoose.Schema({
+  allPoints: {type: Number, default: 0},
+  allEntriesCount: {type: Number, default: 0},
+  allEntriesRecent: {type: Array, default: []},
   earthPoints: {type: Number, default: 0},
   earthEntriesCount: {type: Number, default: 0},
   earthEntriesRecent: {type: Array, default: []},
