@@ -4,19 +4,27 @@ const mongoose = require('mongoose');
 
 const { MONGODB_URI } = require('../config');
 
-const USLocation = require('../models/usLocation');
+// const USLocation = require('../models/usLocation');
 
-const seedUSLocations = require('../db/seed/usLocations.json');
+// const seedUSLocations = require('../db/seed/usLocations.json');
+let countries = require('../db/entries');
+let oceanEntries = require('../db/oceanEntries');
+let states = require('../db/states');
+const globalStats = require('../models/globalStats');
 
 mongoose.connect(MONGODB_URI)
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {
     return Promise.all([
-      USLocation.insertMany(seedUSLocations)
+      globalStats.create({
+        countries: countries,
+        ocean: oceanEntries,
+        states: states
+      })
     ]);
   })
   .then((results) => {
-    console.log(`Inserted ${results[0].length} Locations`);
+    console.log('inserted contries and oceans into globalStats collection');
   })
   .then(() => mongoose.disconnect())
   .catch(err => {

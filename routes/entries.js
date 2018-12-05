@@ -11,7 +11,7 @@ const UserStats = require('../models/user-stats');
 /*======POST /Entries======*/
 router.post('/entries', (req, res, next) => {
   const userId = req.user._id;
-  const { country, stateRegion, entry, entryType } = req.body;
+  const { country, stateRegion, entry, entryType, ocean } = req.body;
   
   if (!mongoose.Types.ObjectId.isValid(userId)) {
     const err = new Error('The `id` is not valid');
@@ -24,16 +24,25 @@ router.post('/entries', (req, res, next) => {
   } else {
     type = entryType.toLowerCase();
   }
-  console.log('TYPE', type);
+  let newEntry;
   let timeStamp = moment().format('MMMM Do YYYY, h:mm:ss a');
-  let newEntry = {
-    timeStamp: timeStamp,
-    type: type,
-    entry: entry,
-    country: country,
-    stateRegion: stateRegion
-  };
-
+  if (type === 'ocean') {
+    newEntry = {
+      timeStamp: timeStamp,
+      type: type,
+      entry: entry,
+      ocean: ocean  
+    };
+  }
+  else {
+    newEntry = {
+      timeStamp: timeStamp,
+      type: type,
+      entry: entry,
+      country: country,
+      stateRegion: stateRegion
+    };
+  }
   return UserStats.findOne({userId})
     .then(stats => {
       stats[`${type}Entries`].push(newEntry);

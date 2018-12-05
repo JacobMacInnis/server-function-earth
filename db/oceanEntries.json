@@ -1,0 +1,27 @@
+{
+  "Atlantic": {
+    "totalEntries": 0,
+    "totalPoints": 0,
+    "entries": []
+  },
+  "Artic": {
+    "totalEntries": 0,
+    "totalPoints": 0,
+    "entries": []
+  },
+  "Indian": {
+    "totalEntries": 0,
+    "totalPoints": 0,
+    "entries": []
+  },
+  "Pacific": {
+    "totalEntries": 0,
+    "totalPoints": 0,
+    "entries": []
+  },
+  "Southern": {
+    "totalEntries": 0,
+    "totalPoints": 0,
+    "entries": []
+  } 
+}
