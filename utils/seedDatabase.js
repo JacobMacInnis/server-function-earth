@@ -4,23 +4,25 @@ const mongoose = require('mongoose');
 
 const { MONGODB_URI } = require('../config');
 
-// const USLocation = require('../models/usLocation');
+// Schemas
+const GlobalSchema = require('../models/global');
+const CountrySchema = require('../models/countries');
+const StatesSchema = require('../models/state');
+const OceanSchema = require('../models/ocean');
 
-// const seedUSLocations = require('../db/seed/usLocations.json');
-let countries = require('../db/entries');
-let oceanEntries = require('../db/oceanEntries');
+// Seed Data
+const countries = require('../db/countryArray');
 let states = require('../db/states');
-const globalStats = require('../models/globalStats');
+const oceans = require('../db/oceans');
 
 mongoose.connect(MONGODB_URI)
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {
     return Promise.all([
-      globalStats.create({
-        countries: countries,
-        ocean: oceanEntries,
-        states: states
-      })
+      GlobalSchema.create({allPoints: 25}),
+      CountrySchema.insertMany(countries),
+      StatesSchema.insertMany(states),
+      OceanSchema.insertMany(oceans)
     ]);
   })
   .then((results) => {

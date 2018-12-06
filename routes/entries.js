@@ -7,9 +7,14 @@ const moment = require('moment');
 const mongoose = require('mongoose');
 
 const UserStats = require('../models/user-stats');
-const GlobalStats = require('../models/GlobalStats');
+const GlobalSchema = require('../models/global');
+const CountrySchema = require('../models/countries');
+const StateSchema = require('../models/state');
+const OceanSchema = require('../models/ocean');
+
 const countryCode = require('../db/countryCode');
 const stateCode = require('../db/stateCode');
+
 
 /*======POST /Entries======*/
 router.post('/entries', (req, res, next) => {
@@ -52,7 +57,6 @@ router.post('/entries', (req, res, next) => {
     usState = `${stateRegion}:${stateCode[stateRegion]}`;
   }
   let cdb = `${cc}:${country}`;
-  console.log(cdb);
   return UserStats.findOne({userId})
     .then(stats => {
       stats[`${type}Entries`].push(newEntry);
@@ -70,61 +74,71 @@ router.post('/entries', (req, res, next) => {
       return stats.save();
     })
     .then(() => {
-      return GlobalStats.findOne()
+      return GlobalSchema.findOne()
         .then(gs => {
           newEntry.username = username;
-          gs.allPoints += 25;
-          gs.allEntriesCount += 1;
-          if (gs.allEntriesRecent.length < 10) {
-            gs.allEntriesRecent.push(newEntry);
-          } else if (gs.allEntriesRecent === 10) {
-            gs.allEntriesRecent.shift();
-            gs.allEntriesRecent.push(newEntry);
+          gs.entryCount += 1;
+          gs.points += 25;
+          if (gs.recentEntries.length < 25) {
+            gs.recentEntries.push(newEntry);
+          } else if (gs.recentEntries === 25) {
+            gs.recentEntries.shift();
+            gs.recentEntries.push(newEntry);
           }
-          // Ocean Entries
-          if (type === 'ocean') {
-            gs.oceanPoints += 25;
-            gs.oceanEntriesCount += 1;
-            if (gs.oceanEntriesRecent < 10) {
-              gs.oceanEntriesRecent.push(newEntry);
-            } else if (gs.oceanEntriesRecent === 10) {
-              gs.oceanEntriesRecent.shift();
-              gs.oceanEntriesRecent.push(newEntry);
-            }
-            gs.oceans[ocean].totalPoints += 25;
-            gs.oceans[ocean].totalEntries += 1;
-            gs.oceans[ocean].entries.push(newEntry);
-          } else {
-            // Not an Ocean Entry
-            gs[`${type}Points`] += 25;
-            gs[`${type}EntriesCount`] += 1;
-            if (gs[`${type}EntriesRecent`].length < 10) {
-              gs[`${type}EntriesRecent`].push(newEntry);
-            } else if (gs[`${type}EntriesRecent`].length === 10) {
-              gs[`${type}EntriesRecent`].shift();
-              gs[`${type}EntriesRecent`].push(newEntry);
-            }
-            console.log(gs.countries[cdb].totalEntries)
-            gs.countries[cdb].totalEntries += 1;
-            console.log(gs.countries[cdb].totalEntries)
-            gs.countries[cdb].totalPoints += 25;
-            if (gs.countries[cdb].recentEntries.length < 10) {
-              gs.countries[cdb].recentEntries.push(newEntry);
-            } else if (gs.countries[cdb].recentEntries.length === 10) {
-              gs.countries[cdb].recentEntries.shift();
-              gs.countries[cdb].recentEntries.push(newEntry);
-            }
-            gs.countries[cdb].entries[`${type}EntryCount`] += 1;
-            gs.countries[cdb].entries[`${type}TotalPoints`] += 25;
-            gs.countries[cdb].entries[`${type}Entries`].push(newEntry);
-            if (type !== 'ocean' && cc === 'US') {
-              gs.states[usState].totalEntries += 1;
-              gs.states[usState].totalPoints += 25;
-              gs.states[usState].entries.push(newEntry);
-            }
+          gs[`${type}EntryCount`] += 1;
+          gs[`${type}Points`] += 25;
+          if (gs[`${type}RecentEntries`].length < 25) {
+            gs[`${type}RecentEntries`].push(newEntry);
+          } else if (gs[`${type}RecentEntries`].length === 25) {
+            gs[`${type}RecentEntries`].shift();
+            gs[`${type}RecentEntries`].push(newEntry);
           }
           return gs.save();
         });
+    })
+    .then(() => {
+      return CountrySchema.findOne({country: cdb})
+        .then(cs => {
+          cs.entryCount += 1;
+          cs.points += 25;
+          if (cs.recentEntries.length < 25) {
+            cs.recentEntries.push(newEntry);
+          } else if (cs.recentEntries.length === 25) {
+            cs.recentEntries.shift();
+            cs.recentEntries.push(newEntry);
+          }
+          cs[`${type}EntryCount`] += 1;
+          cs[`${type}Points`] += 25;
+          if (cs[`${type}Entries`].length < 25) {
+            cs[`${type}Entries`].push(newEntry);
+          } else if (cs[`${type}Entries`].length === 25) {
+            cs[`${type}Entries`].shift();
+            cs[`${type}Entries`].push(newEntry);
+          }
+          return cs.save();
+        });
+    })
+    .then(() => {
+      if (usState !== 'na') {
+        return StateSchema.findOne({state: usState})
+          .then(ss => {
+            ss.entryCount += 1;
+            ss.points += 25;
+            ss.entries.push(newEntry);
+            return ss.save();
+          });
+      }
+    })
+    .then(() => {
+      if (type === 'ocean') {
+        return OceanSchema.findOne({ocean: ocean})
+          .then(os => {
+            os.entryCount += 1;
+            os.points += 25;
+            os.entries.push(newEntry);
+            return os.save(); 
+          });
+      }
     })
     .then(() => {
       res.json('sucessfully logged entry');
