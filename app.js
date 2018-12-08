@@ -14,6 +14,7 @@ const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
 const statsRouter = require('./routes/stats');
 const entriesRouter = require('./routes/entries');
+const globalStatsRouter = require('./routes/globalStats');
 
 /*=========Create Express Application========*/
 const app = express();
@@ -46,6 +47,7 @@ app.use('/api', usersRouter);
 app.use('/api/auth', authRouter);
 app.use('/api', jwtAuth, statsRouter);
 app.use('/api', jwtAuth, entriesRouter);
+app.use('/api', jwtAuth, globalStatsRouter);
 
 /*=======Custom 404 Not Found route handler=======*/
 app.use((req, res, next) => {

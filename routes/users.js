@@ -105,6 +105,7 @@ router.post('/users', (req, res, next) => {
       return User.hashPassword(password);
     })
     .then(hash => {
+      console.log('-->',hash,'<---');
       return User.create({
         username,
         password: hash,

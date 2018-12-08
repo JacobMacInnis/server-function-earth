@@ -1,14 +1,14 @@
 [
-  { 
-    "ocean": "Atlantic",
-    "totalPoints": 0,
-    "totalEntries": 0,
-    "entries": []
-  },
   {
     "ocean": "Artic",
     "totalEntries": 0,
     "totalPoints": 0,
+    "entries": []
+  },
+  { 
+    "ocean": "Atlantic",
+    "totalPoints": 0,
+    "totalEntries": 0,
     "entries": []
   },
   {

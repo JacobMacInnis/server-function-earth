@@ -9,10 +9,11 @@ const GlobalSchema = require('../models/global');
 const CountrySchema = require('../models/countries');
 const StatesSchema = require('../models/state');
 const OceanSchema = require('../models/ocean');
+const TopUserSchema = require('../models/top-users');
 
 // Seed Data
 const countries = require('../db/countryArray');
-let states = require('../db/states');
+const states = require('../db/states');
 const oceans = require('../db/oceans');
 
 mongoose.connect(MONGODB_URI)
@@ -22,7 +23,8 @@ mongoose.connect(MONGODB_URI)
       GlobalSchema.create({allPoints: 25}),
       CountrySchema.insertMany(countries),
       StatesSchema.insertMany(states),
-      OceanSchema.insertMany(oceans)
+      OceanSchema.insertMany(oceans),
+      TopUserSchema.create()
     ]);
   })
   .then((results) => {

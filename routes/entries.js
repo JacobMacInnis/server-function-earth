@@ -11,6 +11,7 @@ const GlobalSchema = require('../models/global');
 const CountrySchema = require('../models/countries');
 const StateSchema = require('../models/state');
 const OceanSchema = require('../models/ocean');
+const TopUserSchema = require('../models/top-users');
 
 const countryCode = require('../db/countryCode');
 const stateCode = require('../db/stateCode');
