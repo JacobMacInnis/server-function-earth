@@ -57,8 +57,11 @@ router.get('/globalstats', (req, res, next) => {
           points: oceans[4].points
         }
       };
+      return TopUserSchema.findOne();
     })
-    .then()
+    .then(topUsers => {
+      returnObj.topUsers = topUsers;
+    })
     .then(() => {
       res.json(returnObj);
     })

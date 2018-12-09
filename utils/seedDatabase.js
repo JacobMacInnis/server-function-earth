@@ -10,11 +10,16 @@ const CountrySchema = require('../models/countries');
 const StatesSchema = require('../models/state');
 const OceanSchema = require('../models/ocean');
 const TopUserSchema = require('../models/top-users');
+const UserSchema = require('../models/user');
+const UserStatsSchema = require('../models/user-stats');
 
 // Seed Data
 const countries = require('../db/countryArray');
 const states = require('../db/states');
 const oceans = require('../db/oceans');
+const users = require('../db/users');
+const userStats = require('../db/userStats');
+const topUsers = require('../db/topUsers');
 
 mongoose.connect(MONGODB_URI)
   .then(() => mongoose.connection.db.dropDatabase())
@@ -24,7 +29,9 @@ mongoose.connect(MONGODB_URI)
       CountrySchema.insertMany(countries),
       StatesSchema.insertMany(states),
       OceanSchema.insertMany(oceans),
-      TopUserSchema.create()
+      TopUserSchema.create(topUsers),
+      UserSchema.insertMany(users),
+      UserStatsSchema.insertMany(userStats)
     ]);
   })
   .then((results) => {

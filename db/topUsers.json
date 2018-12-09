@@ -1,3 +1,187 @@
 {
-  "topUsers": [{}]
+  "topUsers": [
+    {
+      "userId": "000000000000000000000001",
+      "username": "Jacob",
+      "country": "US",
+      "totalPoints": 100,
+      "totalEntries": 4
+    },
+    {
+      "userId": "000000000000000000000002",
+      "username": "MiroArt&Design",
+      "country": "Poland",
+      "totalPoints": 100,
+      "totalEntries": 4
+    },
+    {
+      "userId": "000000000000000000000003",
+      "username": "MacInnisCompany",
+      "country": "US",
+      "totalPoints": 100,
+      "totalEntries": 4
+    },
+    {
+      "userId": "000000000000000000000004",
+      "username": "PrincessMeadows",
+      "country": "US",
+      "totalPoints": 100,
+      "totalEntries": 4
+    },
+    {
+      "userId": "000000000000000000000005",
+      "username": "TheFuture",
+      "country": "US",
+      "totalPoints": 100,
+      "totalEntries": 4
+    }
+  ],
+  "topEarthUsers":[
+    {
+      "userId": "000000000000000000000001",
+      "username": "Jacob",
+      "country": "US",
+      "earthPoints": 25,
+      "earthEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000002",
+      "username": "MiroArt&Design",
+      "country": "Poland",
+      "earthPoints": 25,
+      "earthEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000003",
+      "username": "MacInnisCompany",
+      "country": "US",
+      "earthPoints": 25,
+      "earthEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000004",
+      "username": "PrincessMeadows",
+      "country": "US",
+      "earthPoints": 25,
+      "earthEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000005",
+      "username": "TheFuture",
+      "country": "US",
+      "earthPoints": 25,
+      "earthEntriesCount": 1
+    }
+  ],
+  "topOceanUsers": [
+    {
+      "userId": "000000000000000000000001",
+      "username": "Jacob",
+      "country": "US",
+      "oceanPoints": 25,
+      "oceanEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000002",
+      "username": "MiroArt&Design",
+      "country": "Poland",
+      "oceanPoints": 25,
+      "oceanEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000003",
+      "username": "MacInnisCompany",
+      "country": "US",
+      "oceanPoints": 25,
+      "oceanEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000004",
+      "username": "PrincessMeadows",
+      "country": "US",
+      "oceanPoints": 25,
+      "oceanEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000005",
+      "username": "TheFuture",
+      "country": "US",
+      "oceanPoints": 25,
+      "oceanEntriesCount": 1
+    }
+  ],
+  "topAnimalUsers": [
+    {
+      "userId": "000000000000000000000001",
+      "username": "Jacob",
+      "country": "US",
+      "animalPoints": 25,
+      "animalEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000002",
+      "username": "MiroArt&Design",
+      "country": "Poland",
+      "animalPoints": 25,
+      "animalEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000003",
+      "username": "MacInnisCompany",
+      "country": "US",
+      "animalPoints": 25,
+      "animalEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000004",
+      "username": "PrincessMeadows",
+      "country": "US",
+      "animalPoints": 25,
+      "animalEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000005",
+      "username": "TheFuture",
+      "country": "US",
+      "animalPoints": 25,
+      "animalEntriesCount": 1
+    }
+  ],
+  "topHumanityUsers": [
+    {
+      "userId": "000000000000000000000001",
+      "username": "Jacob",
+      "country": "US",
+      "humanityPoints": 25,
+      "humanityEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000002",
+      "username": "MiroArt&Design",
+      "country": "Poland",
+      "humanityPoints": 25,
+      "humanityEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000003",
+      "username": "MacInnisCompany",
+      "country": "US",
+      "humanityPoints": 25,
+      "humanityEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000004",
+      "username": "PrincessMeadows",
+      "country": "US",
+      "humanityPoints": 25,
+      "humanityEntriesCount": 1
+    },
+    {
+      "userId": "000000000000000000000005",
+      "username": "TheFuture",
+      "country": "US",
+      "humanityPoints": 25,
+      "humanityEntriesCount": 1
+    }
+  ]
 }

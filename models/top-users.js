@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const TopUserSchema = new mongoose.Schema({
   topUsers: {type: Array, default: []},
-  topEarthUses: {type: Array, default: []},
+  topEarthUsers: {type: Array, default: []},
   topOceanUsers: {type: Array, default: []},
   topAnimalUsers: {type: Array, default: []},
   topHumanityUsers: {type: Array, default: []}

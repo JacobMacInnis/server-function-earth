@@ -1,7 +1,33 @@
 [
   {
+    "_id": "000000000000000000000001",
     "firstName": "Jacob",
     "username": "Jacob",
-    ""
+    "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
+  }, 
+  {
+    "_id": "000000000000000000000002",
+    "firstName": "Kasia",
+    "username": "MiroArt&Design",
+    "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
+  },
+  {
+    "_id": "000000000000000000000003",
+    "firstName": "Ron",
+    "username": "MacInnisCompany",
+    "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
+  },
+  {
+    "_id": "000000000000000000000004",
+    "firstName": "Jan",
+    "username": "PrincessMeadows",
+    "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
+  },
+  {
+    "_id": "000000000000000000000005",
+    "firstName": "Ellis",
+    "username": "TheFuture",
+    "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
+
   }
 ]
