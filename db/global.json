@@ -1,66 +1,240 @@
 {
- "points": 500,
- "entryCount": 20,
- "recentEntries": [{
+  "points": 625,
+  "entryCount": 25,
+  "recentEntries": [{
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "Jacob",
     "type": "earth",
     "entry": "Built compost bin in backyard.",
     "country": "US",
     "stateRegion": "MA"
-  },{
+    }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MiroArt&Design",
-    "type": "water",
+    "type": "ocean",
     "ocean": "atlantic",
-    "entry": "Picked up trashat the beach.",
+    "entry": "Picked up trash at the beach.",
     "country": "PL",
     "stateRegion": "Lodz"
-  },{
+    }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MacInnisCompany",
     "type": "humanity",
     "entry": "Helped out at local senior center",
     "country": "GB",
     "stateRegion": "Scotland"
-  },{
+    }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "PrincessMeadows",
     "type": "animal",
     "entry": "fed the birds",
     "country": "CA",
     "stateRegion": "Nova Scotia"
-  },{
+    }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MacInnisCompany",
+    "type": "earth",
+    "entry": "Built compost bin in backyard.",
+    "country": "GB",
+    "stateRegion": "Scotland"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "The Future",
+    "type": "earth",
+    "entry": "Built compost bin in backyard.",
+    "country": "JM",
+    "stateRegion": "Kingston"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "PrincessMeadows",
+    "type": "earth",
+    "entry": "Built compost bin in backyard.",
+    "country": "CA",
+    "stateRegion": "Nova Scotia"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "The Future",
+    "type": "ocean",
+    "ocean": "atlantic",
+    "entry": "Picked up trash at the beach.",
+    "country": "JM",
+    "stateRegion": "Kingston"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MacInnisCompany",
+    "type": "earth",
+    "entry": "recycled cans",
+    "country": "GB",
+    "stateRegion": "Scotland"
+    },{
+    "timeStamp": "December 5th 2018, 9:54:29 am",
     "username": "The Future",
     "type": "earth",
     "entry": "recycled cans",
     "country": "JM",
     "stateRegion": "Kingston"
-  }],
-  "earthPoints": 125,
-  "earthEntryCount": 5,
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "PrincessMeadows",
+    "type": "earth",
+    "entry": "recycled cans",
+    "country": "CA",
+    "stateRegion": "Nova Scotia"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MiroArt&Design",
+    "type": "earth",
+    "entry": "recycled cans",
+    "country": "PL",
+    "stateRegion": "Lodz"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "The Future",
+    "type": "animal",
+    "entry": "fed local birds",
+    "country": "JM",
+    "stateRegion": "Kingston"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "PrincessMeadows",
+    "type": "ocean",
+    "ocean": "atlantic",
+    "entry": "Picked up trash at the beach.",
+    "country": "CA",
+    "stateRegion": "Nova Scotia"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MacInnisCompany",
+    "type": "ocean", 
+    "ocean": "atlantic",
+    "entry": "Picked up trash at the beach.",
+    "country": "GB",
+    "stateRegion": "Scotland"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MiroArt&Design",
+    "type": "earth",
+    "entry": "Built compost bin in backyard.",
+    "country": "PL",
+    "stateRegion": "Lodz"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "Jacob",
+    "type": "ocean",
+    "ocean": "atlantic",
+    "entry": "Picked up trash at the beach.",
+    "country": "US",
+    "stateRegion": "MA"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "The Future",
+    "type": "humanity",
+    "entry": "Helped out at local senior center",
+    "country": "JM",
+    "stateRegion": "Kingston"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MiroArt&Design",
+    "type": "animal",
+    "entry": "fed local birds",
+    "country": "PL",
+    "stateRegion": "Lodz"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "Jacob",
+    "type": "humanity",
+    "entry": "Helped out at local senior center",
+    "country": "US",
+    "stateRegion": "MA"
+    },  {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MacInnisCompany",
+    "type": "animal",
+    "entry": "fed local birds",
+    "country": "GB",
+    "stateRegion": "Scotland"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "Jacob",
+    "type": "animal",
+    "entry": "fed the birds",
+    "country": "US",
+    "stateRegion": "MA"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "PrincessMeadows",
+    "type": "humanity",
+    "entry": "Helped out at local senior center",
+    "country": "CA",
+    "stateRegion": "Nova Scotia"
+    }, {
+    "timeStamp": "December 5th 2018, 09:54:29 am",
+    "username": "MiroArt&Design",
+    "type": "humanity",
+    "entry": "Helped out at local senior center",
+    "country": "PL",
+    "stateRegion": "Lodz"
+    }, {
+    "timeStamp": "December 5th 2018, 9:54:29 am",
+    "username": "Jacob",
+    "type": "earth",
+    "entry": "recycled cans.",
+    "country": "US",
+    "stateRegion": "MA"
+    }],
+  "earthPoints": 250,
+  "earthEntryCount": 10,
   "earthRecentEntries": [
     {
-      "timeStamp": "December 5th 2018, 09:54:29 am",
+      "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "Jacob",
       "entry": "Built compost bin in backyard.",
       "country": "US",
       "stateRegion": "MA"
     }, {
-      "timeStamp": "December 5th 2018, 09:54:29 am",
+      "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MiroArt&Design",
-      "entry": "Built compost bin in backyard.",
+      "entry": "Recycled cans",
       "country": "PL",
       "stateRegion": "Lodz"
     }, {
-      "timeStamp": "December 5th 2018, 09:54:29 am",
+      "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MacInnisCompany",
       "entry": "Built compost bin in backyard.",
       "country": "GB",
       "stateRegion": "Scotland"
     }, {
+      "timeStamp": "December 5th 2018, 9:54:29 am",
+      "username": "PrincessMeadows",
+      "entry": "Recycled cans",
+      "country": "CA",
+      "stateRegion": "Nova Scotia"
+    }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
+      "username": "The Future",
+      "entry": "Built compost bin in backyard.",
+      "country": "JM",
+      "stateRegion": "Kingston"
+    }, {
+      "timeStamp": "December 5th 2018, 9:54:29 am",
+      "username": "Jacob",
+      "entry": "recycled cans",
+      "country": "US",
+      "stateRegion": "MA"
+    }, {
+      "timeStamp": "December 5th 2018, 9:54:29 am",
+      "username": "MiroArt&Design",
+      "entry": "Built compost bin in backyard.",
+      "country": "PL",
+      "stateRegion": "Lodz"
+    }, {
+      "timeStamp": "December 5th 2018, 9:54:29 am",
+      "username": "MacInnisCompany",
+      "entry": "Recycled cans",
+      "country": "GB",
+      "stateRegion": "Scotland"
+    }, {
+      "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "PrincessMeadows",
       "entry": "Built compost bin in backyard.",
       "country": "CA",
@@ -68,7 +242,7 @@
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "The Future",
-      "entry": "Built compost bin in backyard.",
+      "entry": "Recycled cans",
       "country": "JM",
       "stateRegion": "Kingston"
     }],
