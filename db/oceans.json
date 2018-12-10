@@ -7,9 +7,34 @@
   },
   { 
     "ocean": "Atlantic",
-    "totalPoints": 0,
-    "totalEntries": 0,
-    "entries": []
+    "points": 125,
+    "entryCount": 5,
+    "entries": [{
+      "username": "Jacob",
+      "entry": "Picked up plastic trash at beach",
+      "country": "US",
+      "stateRegion": "MA"
+    }, {
+      "username": "MiroArt&Design",
+      "entry": "Picked up plastic trash at beach",
+      "country": "US",
+      "stateRegion": "MA"
+    },{
+      "username": "MacInnisCompany",
+      "entry": "Picked up plastic trash at beach",
+      "country": "US",
+      "stateRegion": "MA"
+    },{
+      "username": "PrincesMeadows",
+      "entry": "Picked up plastic trash at beach",
+      "country": "US",
+      "stateRegion": "MA"
+    },{
+      "username": "The Future",
+      "entry": "Picked up plastic trash at beach",
+      "country": "US",
+      "stateRegion": "MA"
+    }]
   },
   {
     "ocean": "Indian",

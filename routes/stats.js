@@ -18,6 +18,7 @@ router.get('/stats', (req, res, next) => {
   }
   return UserStats.findOne({userId})
     .then(statsObject => {
+      console.log(statsObject.recentEntries);
       res.json(statsObject);
     })
     .catch(err => {

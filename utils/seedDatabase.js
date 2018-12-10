@@ -14,6 +14,7 @@ const UserSchema = require('../models/user');
 const UserStatsSchema = require('../models/user-stats');
 
 // Seed Data
+const global = require('../db/global');
 const countries = require('../db/countryArray');
 const states = require('../db/states');
 const oceans = require('../db/oceans');
@@ -25,7 +26,7 @@ mongoose.connect(MONGODB_URI)
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {
     return Promise.all([
-      GlobalSchema.create({allPoints: 25}),
+      GlobalSchema.create(global),
       CountrySchema.insertMany(countries),
       StatesSchema.insertMany(states),
       OceanSchema.insertMany(oceans),
