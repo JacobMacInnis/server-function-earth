@@ -34,7 +34,8 @@ router.post('/entries', (req, res, next) => {
     type = entryType.toLowerCase();
   }
   let newEntry;
-  let timeStamp = moment().format('MMMM Do YYYY, h:mm:ss a');
+  let timeStamp = moment().format('MMMM Do YYYY, hh:mm:ss a');
+  
   if (type === 'ocean') {
     newEntry = {
       timeStamp: timeStamp,

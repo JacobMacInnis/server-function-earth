@@ -4,36 +4,36 @@
       "userId": "000000000000000000000001",
       "username": "Jacob",
       "country": "US",
-      "totalPoints": 100,
-      "totalEntries": 4
+      "totalPoints": 125,
+      "totalEntries": 5
     },
     {
       "userId": "000000000000000000000002",
       "username": "MiroArt&Design",
-      "country": "Poland",
-      "totalPoints": 100,
-      "totalEntries": 4
+      "country": "PL",
+      "totalPoints": 125,
+      "totalEntries": 5
     },
     {
       "userId": "000000000000000000000003",
       "username": "MacInnisCompany",
-      "country": "US",
-      "totalPoints": 100,
-      "totalEntries": 4
+      "country": "GB",
+      "totalPoints": 125,
+      "totalEntries": 5
     },
     {
       "userId": "000000000000000000000004",
       "username": "PrincessMeadows",
-      "country": "US",
-      "totalPoints": 100,
-      "totalEntries": 4
+      "country": "CA",
+      "totalPoints": 125,
+      "totalEntries": 5
     },
     {
       "userId": "000000000000000000000005",
       "username": "TheFuture",
-      "country": "US",
-      "totalPoints": 100,
-      "totalEntries": 4
+      "country": "JM",
+      "totalPoints": 125,
+      "totalEntries": 5
     }
   ],
   "topEarthUsers":[
@@ -41,36 +41,36 @@
       "userId": "000000000000000000000001",
       "username": "Jacob",
       "country": "US",
-      "earthPoints": 25,
-      "earthEntriesCount": 1
+      "earthPoints": 50,
+      "earthEntriesCount": 2
     },
     {
       "userId": "000000000000000000000002",
       "username": "MiroArt&Design",
-      "country": "Poland",
-      "earthPoints": 25,
-      "earthEntriesCount": 1
+      "country": "PL",
+      "earthPoints": 50,
+      "earthEntriesCount": 2
     },
     {
       "userId": "000000000000000000000003",
       "username": "MacInnisCompany",
-      "country": "US",
-      "earthPoints": 25,
-      "earthEntriesCount": 1
+      "country": "GB",
+      "earthPoints": 50,
+      "earthEntriesCount": 2
     },
     {
       "userId": "000000000000000000000004",
       "username": "PrincessMeadows",
-      "country": "US",
-      "earthPoints": 25,
-      "earthEntriesCount": 1
+      "country": "CA",
+      "earthPoints": 50,
+      "earthEntriesCount": 2
     },
     {
       "userId": "000000000000000000000005",
       "username": "TheFuture",
-      "country": "US",
-      "earthPoints": 25,
-      "earthEntriesCount": 1
+      "country": "JM",
+      "earthPoints": 50,
+      "earthEntriesCount": 2
     }
   ],
   "topOceanUsers": [
@@ -84,28 +84,28 @@
     {
       "userId": "000000000000000000000002",
       "username": "MiroArt&Design",
-      "country": "Poland",
+      "country": "PL",
       "oceanPoints": 25,
       "oceanEntriesCount": 1
     },
     {
       "userId": "000000000000000000000003",
       "username": "MacInnisCompany",
-      "country": "US",
+      "country": "GB",
       "oceanPoints": 25,
       "oceanEntriesCount": 1
     },
     {
       "userId": "000000000000000000000004",
       "username": "PrincessMeadows",
-      "country": "US",
+      "country": "CA",
       "oceanPoints": 25,
       "oceanEntriesCount": 1
     },
     {
       "userId": "000000000000000000000005",
       "username": "TheFuture",
-      "country": "US",
+      "country": "JM",
       "oceanPoints": 25,
       "oceanEntriesCount": 1
     }
@@ -121,28 +121,28 @@
     {
       "userId": "000000000000000000000002",
       "username": "MiroArt&Design",
-      "country": "Poland",
+      "country": "PL",
       "animalPoints": 25,
       "animalEntriesCount": 1
     },
     {
       "userId": "000000000000000000000003",
       "username": "MacInnisCompany",
-      "country": "US",
+      "country": "GB",
       "animalPoints": 25,
       "animalEntriesCount": 1
     },
     {
       "userId": "000000000000000000000004",
       "username": "PrincessMeadows",
-      "country": "US",
+      "country": "CA",
       "animalPoints": 25,
       "animalEntriesCount": 1
     },
     {
       "userId": "000000000000000000000005",
       "username": "TheFuture",
-      "country": "US",
+      "country": "JM",
       "animalPoints": 25,
       "animalEntriesCount": 1
     }
@@ -158,28 +158,28 @@
     {
       "userId": "000000000000000000000002",
       "username": "MiroArt&Design",
-      "country": "Poland",
+      "country": "PL",
       "humanityPoints": 25,
       "humanityEntriesCount": 1
     },
     {
       "userId": "000000000000000000000003",
       "username": "MacInnisCompany",
-      "country": "US",
+      "country": "GB",
       "humanityPoints": 25,
       "humanityEntriesCount": 1
     },
     {
       "userId": "000000000000000000000004",
       "username": "PrincessMeadows",
-      "country": "US",
+      "country": "CA",
       "humanityPoints": 25,
       "humanityEntriesCount": 1
     },
     {
       "userId": "000000000000000000000005",
       "username": "TheFuture",
-      "country": "US",
+      "country": "JM",
       "humanityPoints": 25,
       "humanityEntriesCount": 1
     }
