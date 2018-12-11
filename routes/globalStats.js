@@ -62,7 +62,6 @@ router.get('/globalstats', (req, res, next) => {
     })
     .then(topUsers => {
       returnObj.topUsers = topUsers;
-      console.log(returnObj);
     })
     .then(() => {
       res.json(returnObj);
