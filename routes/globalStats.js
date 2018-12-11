@@ -22,6 +22,7 @@ router.get('/globalstats', (req, res, next) => {
   let returnObj = {};
   return GlobalSchema.findOne()
     .then(statsObject => {
+      returnObj.recentEntries = statsObject.recentEntries;
       returnObj.entryCount = statsObject.entryCount;
       returnObj.points = statsObject.points;
       returnObj.earthPoints = statsObject.earthPoints;
@@ -61,6 +62,7 @@ router.get('/globalstats', (req, res, next) => {
     })
     .then(topUsers => {
       returnObj.topUsers = topUsers;
+      console.log(returnObj);
     })
     .then(() => {
       res.json(returnObj);
