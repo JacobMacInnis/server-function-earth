@@ -247,7 +247,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       stateRegion = stateRegion.toLowerCase();
       if (states.hasOwnProperty(stateRegion)) {
         stateRegion = states[stateRegion];
-        location.state = stateRegion;
+        // location.state = stateRegion;
       } else {
         const err = new Error('State can not be found');
         err.status = 400;
