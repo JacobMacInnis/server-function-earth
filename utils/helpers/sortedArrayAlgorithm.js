@@ -32,7 +32,7 @@ const newTopUser = (arrObj, userObject) => {
       if (i !== 4) {
         arrObj[i + 1] = temp;
       }	
-      else if (userObject.totalPoints < arrObj[i]) {
+      else if (userObject.totalPoints < arrObj[i].totalPoints) {
         return arrObj;        
       }
     }
@@ -40,4 +40,40 @@ const newTopUser = (arrObj, userObject) => {
   return arrObj;
 };
 
-module.exports = { newTopUser };
+function bubbleSort2(array, type) {
+  for (let i = array.length -1; i >= 0; i--) {
+    for (let j = 3; j >= 0; j--) {
+      if (array[j + 1][`${type}Points`] > array[j][`${type}Points`]) {
+        swap(array, j+1, j);
+      }
+    }
+  }
+  return array;
+}
+
+const newTopTypeUser = (arrObj, userObject, type) => {
+  let temp;
+  console.log(arrObj);
+  for (let a = 4; a >= 0; a--) {
+    if (arrObj[a].username === userObject.username) {
+      arrObj[a][`${type}Points`] = userObject[`${type}Points`];
+      arrObj[a][`${type}EntriesCount`] = userObject[`${type}EntriesCount`];
+      return bubbleSort2(arrObj, type);
+    }
+  }
+  for (let i = 4; i >= 0; i--) {
+    if (userObject[`${type}Points`] >= arrObj[i][`${type}Points`]) {
+      temp = arrObj[i];
+      arrObj[i] = userObject;
+      if (i !== 4) {
+        arrObj[i + 1] = temp;
+      }	
+      else if (userObject[`${type}Points`] < arrObj[i][`${type}Points`]) {
+        return arrObj;        
+      }
+    }
+  }
+  return arrObj;
+};
+
+module.exports = { newTopUser, newTopTypeUser };

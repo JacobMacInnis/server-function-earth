@@ -15,7 +15,7 @@ const TopUserSchema = require('../models/top-users');
 
 const countryCode = require('../db/countryCode');
 const stateCode = require('../db/stateCode');
-const { newTopUser } = require('../utils/helpers/sortedArrayAlgorithm');
+const { newTopUser, newTopTypeUser } = require('../utils/helpers/sortedArrayAlgorithm');
 
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
@@ -72,7 +72,10 @@ router.post('/entries', (req, res, next) => {
   }
   let cdb = `${cc}:${fullCountry}`;
   let tpUser;
-  let newArray;
+  let newTopArray;
+  let tpTypeUser;
+  let newTypeArray;
+  const topType = type.charAt(0).toUpperCase() + type.slice(1);
   return UserStats.findOne({userId})
     .then(stats => {
       stats[`${type}Entries`].push(newEntry);
@@ -93,6 +96,13 @@ router.post('/entries', (req, res, next) => {
         totalPoints: stats.totalPoints,
         totalEntries: stats.totalEntries
       };
+      tpTypeUser = {
+        userId: stats.userId,
+        username: stats.username,
+        country: stats.country,
+        [`${type}Points`]: stats[`${type}Points`],
+        [`${type}EntriesCount`]: stats[`${type}EntriesCount`]
+      }
       username = stats.username;
       return stats.save();
     })
@@ -166,13 +176,15 @@ router.post('/entries', (req, res, next) => {
     .then(() => {
       return TopUserSchema.findOne()
         .then(topUser => {
-          return newArray = newTopUser(topUser.topUsers, tpUser);
+          console.log(`top${topType}Users`);
+          newTypeArray = newTopTypeUser(topUser[`top${topType}Users`], tpTypeUser, type);
+          return newTopArray = newTopUser(topUser.topUsers, tpUser);
         })
         .then(() => {
           return TopUserSchema.findOne()
             .then(topUser2 => {
-              console.log('here', newArray);
-              topUser2.topUsers = newArray;
+              topUser2.topUsers = newTopArray;
+              topUser2[`top${topType}Users`] = newTypeArray;
               return topUser2.save();
             });
         });
