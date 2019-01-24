@@ -1,15 +1,10 @@
 'use strict';
-
-function sortArrayOfTopUserObjects(arrObj) {
-  //[{"userId":"000000000000000000000001","username":"Jacob","country":"US","totalPoints":625,"totalEntries":25},{"userId":"000000000000000000000001","username":"Jacob","country":"US","totalPoints":125,"totalEntries":5},{"userId":"000000000000000000000002","username":"MiroArt&Design","country":"PL","totalPoints":125,"totalEntries":5},{"userId":"000000000000000000000003","username":"MacInnisCompany","country":"GB","totalPoints":125,"totalEntries":5},{"userId":"000000000000000000000004","username":"PrincessMeadows","country":"CA","totalPoints":125,"totalEntries":5}]
-  
-} 
+ 
 function swap(array, i, j) {
   let temp = array[i];
   array[i] = array[j];
   array[j] = temp;
 }
-// [ 18, 14, 11, 4, 3]
 function bubbleSort(array) {
   for (let i = array.length -1; i >= 0; i--) {
     for (let j = 3; j >= 0; j--) {
@@ -20,7 +15,6 @@ function bubbleSort(array) {
   }
   return array;
 } 
-
 
 const newTopUser = (arrObj, userObject) => {
   let temp;
