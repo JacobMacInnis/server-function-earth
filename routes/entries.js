@@ -16,6 +16,9 @@ const TopUserSchema = require('../models/top-users');
 const countryCode = require('../db/countryCode');
 const stateCode = require('../db/stateCode');
 
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
 
 /*======POST /Entries======*/
 router.post('/entries', (req, res, next) => {
@@ -53,12 +56,21 @@ router.post('/entries', (req, res, next) => {
       stateRegion: stateRegion
     };
   }
-  let cc = countryCode[country];
+  let cc;
+  let fullCountry;
+  if (country !== 'US') {
+    cc = countryCode[country];
+    fullCountry = country;
+  } else {
+    cc = 'US';
+    fullCountry = getKeyByValue(countryCode, cc);
+  }
   let usState = 'na';
   if (cc === 'US') {
     usState = `${stateRegion}:${stateCode[stateRegion]}`;
   }
-  let cdb = `${cc}:${country}`;
+  let cdb = `${cc}:${fullCountry}`;
+
   return UserStats.findOne({userId})
     .then(stats => {
       stats[`${type}Entries`].push(newEntry);
@@ -141,6 +153,12 @@ router.post('/entries', (req, res, next) => {
             return os.save(); 
           });
       }
+    })
+    .then(() => {
+      return TopUserSchema.findOne()
+        .then(topUser => {
+          console.log(topUser);
+        });
     })
     .then(() => {
       res.json('sucessfully logged entry');
