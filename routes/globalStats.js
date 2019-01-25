@@ -23,6 +23,10 @@ router.get('/globalstats', (req, res, next) => {
   return GlobalSchema.findOne()
     .then(statsObject => {
       returnObj.recentEntries = statsObject.recentEntries;
+      returnObj.earthRecentEntries = statsObject.earthRecentEntries;
+      returnObj.oceanRecentEntries = statsObject.oceanRecentEntries;
+      returnObj.animalRecentEntries = statsObject.animalRecentEntries;
+      returnObj.humanityRecentEntries = statsObject.humanityRecentEntries;
       returnObj.entryCount = statsObject.entryCount;
       returnObj.points = statsObject.points;
       returnObj.earthPoints = statsObject.earthPoints;
