@@ -190,61 +190,71 @@
       "username": "Jacob",
       "entry": "Built compost bin in backyard.",
       "country": "US",
-      "stateRegion": "MA"
+      "stateRegion": "MA",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MiroArt&Design",
       "entry": "Recycled cans",
       "country": "PL",
-      "stateRegion": "Lodz"
+      "stateRegion": "Lodz",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MacInnisCompany",
       "entry": "Built compost bin in backyard.",
       "country": "GB",
-      "stateRegion": "Scotland"
+      "stateRegion": "Scotland",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "PrincessMeadows",
       "entry": "Recycled cans",
       "country": "CA",
-      "stateRegion": "Nova Scotia"
+      "stateRegion": "Nova Scotia",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "The Future",
       "entry": "Built compost bin in backyard.",
       "country": "JM",
-      "stateRegion": "Kingston"
+      "stateRegion": "Kingston",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "Jacob",
       "entry": "recycled cans",
       "country": "US",
-      "stateRegion": "MA"
+      "stateRegion": "MA",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MiroArt&Design",
       "entry": "Built compost bin in backyard.",
       "country": "PL",
-      "stateRegion": "Lodz"
+      "stateRegion": "Lodz",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "MacInnisCompany",
       "entry": "Recycled cans",
       "country": "GB",
-      "stateRegion": "Scotland"
+      "stateRegion": "Scotland",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 9:54:29 am",
       "username": "PrincessMeadows",
       "entry": "Built compost bin in backyard.",
       "country": "CA",
-      "stateRegion": "Nova Scotia"
+      "stateRegion": "Nova Scotia",
+      "type": "earth"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "The Future",
       "entry": "Recycled cans",
       "country": "JM",
-      "stateRegion": "Kingston"
+      "stateRegion": "Kingston",
+      "type": "earth"
     }],
   "oceanPoints": 125,
   "oceanEntryCount": 5,
@@ -255,35 +265,40 @@
       "ocean": "atlantic",
       "entry": "picked up trash on beach",
       "country": "US",
-      "stateRegion": "MA"
+      "stateRegion": "MA",
+      "type": "ocean"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "MiroArt&Design",
       "ocean": "atlantic",
       "entry": "picked up trash on beach",
       "country": "PL",
-      "stateRegion": "Lodz"
+      "stateRegion": "Lodz",
+      "type": "ocean"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "MacInnisCompany",
       "ocean": "atlantic",
       "entry": "picked up trash on beach",
       "country": "GB",
-      "stateRegion": "Scotland"
+      "stateRegion": "Scotland",
+      "type": "ocean"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "PrincessMeadows",
       "ocean": "atlantic",
       "entry": "picked up trash on beach",
       "country": "CA",
-      "stateRegion": "Nova Scotia"
+      "stateRegion": "Nova Scotia",
+      "type": "ocean"
     }, {
       "timeStamp": "December 5th 2018, 09:54:29 am",
       "username": "The Future",
       "ocean": "atlantic",
       "entry": "picked up trash on beach",
       "country": "JM",
-      "stateRegion": "Kingston"
+      "stateRegion": "Kingston",
+      "type": "ocean"
     }],
   "animalPoints": 125,
   "animalEntryCount": 5,
@@ -292,31 +307,36 @@
     "username": "Jacob",
     "entry": "fed local birds",
     "country": "US",
-    "stateRegion": "MA"
+    "stateRegion": "MA",
+    "type": "animal"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MiroArt&Design",
     "entry": "fed local birds",
     "country": "PL",
-    "stateRegion": "Lodz"
+    "stateRegion": "Lodz",
+    "type": "animal"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MacInnisCompany",
     "entry": "fed local birds",
     "country": "GB",
-    "stateRegion": "Scotland"
+    "stateRegion": "Scotland",
+    "type": "animal"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "PrincessMeadows",
     "entry": "fed local birds",
     "country": "CA",
-    "stateRegion": "Nova Scotia"
+    "stateRegion": "Nova Scotia",
+    "type": "animal"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "The Future",
     "entry": "fed local birds",
     "country": "JM",
-    "stateRegion": "Kingston"
+    "stateRegion": "Kingston",
+    "type": "animal"
   }],
   "humanityPoints": 125,
   "humanityEntryCount": 5,
@@ -325,30 +345,35 @@
     "username": "Jacob",
     "entry": "helped out at senior center",
     "country": "US",
-    "stateRegion": "MA"
+    "stateRegion": "MA",
+    "type": "humanity"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MiroArt&Design",
     "entry": "helped out at senior center",
     "country": "PL",
-    "stateRegion": "Lodz"
+    "stateRegion": "Lodz",
+    "type": "humanity"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "MacInnisCompany",
     "entry": "helped out at senior center",
     "country": "GB",
-    "stateRegion": "Scotland"
+    "stateRegion": "Scotland",
+    "type": "humanity"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "PrincessMeadows",
     "entry": "helped out at senior center",
     "country": "CA",
-    "stateRegion": "Scotland"
+    "stateRegion": "Scotland",
+    "type": "humanity"
   }, {
     "timeStamp": "December 5th 2018, 09:54:29 am",
     "username": "The Future",
     "entry": "helped out at senior center",
     "country": "JM",
-    "stateRegion": "Kingston"
+    "stateRegion": "Kingston",
+    "type": "humanity"
   }]
 }
