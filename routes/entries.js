@@ -176,7 +176,6 @@ router.post('/entries', (req, res, next) => {
     .then(() => {
       return TopUserSchema.findOne()
         .then(topUser => {
-          console.log(`top${topType}Users`);
           newTypeArray = newTopTypeUser(topUser[`top${topType}Users`], tpTypeUser, type);
           return newTopArray = newTopUser(topUser.topUsers, tpUser);
         })

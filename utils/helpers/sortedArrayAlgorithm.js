@@ -53,7 +53,6 @@ function bubbleSort2(array, type) {
 
 const newTopTypeUser = (arrObj, userObject, type) => {
   let temp;
-  console.log(arrObj);
   for (let a = 4; a >= 0; a--) {
     if (arrObj[a].username === userObject.username) {
       arrObj[a][`${type}Points`] = userObject[`${type}Points`];
