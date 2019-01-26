@@ -14,7 +14,7 @@ function bubbleSort(array) {
     }
   }
   return array;
-} 
+}
 
 const newTopUser = (arrObj, userObject) => {
   let temp;
