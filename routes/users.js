@@ -19,8 +19,8 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 /*======POST /Users======*/
 router.post('/users', (req, res, next) => {
-  const { firstName, username, password } = req.body;
-  const requiredFields = ['username', 'password', 'firstName'];
+  const { email, username, password } = req.body;
+  const requiredFields = ['username', 'password', 'email'];
   const missingField = requiredFields.find(field => !(field in req.body));
   
   if (missingField) {
@@ -31,7 +31,7 @@ router.post('/users', (req, res, next) => {
       location: missingField
     });
   }
-  const stringFields = ['username', 'password', 'firstName'];
+  const stringFields = ['username', 'password', 'email'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -44,7 +44,7 @@ router.post('/users', (req, res, next) => {
       location: nonStringField
     });
   }
-  const explicityTrimmedFields = ['username', 'password', 'firstName'];
+  const explicityTrimmedFields = ['username', 'password', 'email'];
   const nonTrimmedField = explicityTrimmedFields.find(
     field => req.body[field].trim() !== req.body[field]
   );
@@ -59,6 +59,10 @@ router.post('/users', (req, res, next) => {
   }
 
   const sizedFields = {
+    email: {
+      min: 5,
+      max: 72
+    },
     username: {
       min: 1
     },
@@ -90,7 +94,20 @@ router.post('/users', (req, res, next) => {
       location: tooSmallField || tooLargeField
     });
   }
-  User.find({ username })
+  User.find({ email })
+    .count()
+    .then(count => {
+      if (count > 0 ) {
+        // User has made an account with email
+        return Promise.reject({
+          code: 422,
+          reason: 'ValidationError',
+          message: 'Email already used',
+          location: 'email'
+        });
+      }
+    });
+  return User.find({ username })
     .count()
     .then(count => {
       if (count > 0) {
@@ -105,11 +122,10 @@ router.post('/users', (req, res, next) => {
       return User.hashPassword(password);
     })
     .then(hash => {
-      console.log('-->',hash,'<---');
       return User.create({
         username,
         password: hash,
-        firstName: firstName.trim()
+        email: email.trim()
       });
     }) 
     .then(result => {

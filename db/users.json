@@ -1,31 +1,31 @@
 [
   {
     "_id": "000000000000000000000001",
-    "firstName": "Jacob",
+    "email": "jacob@functionearth.com",
     "username": "Jacob",
     "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
   }, 
   {
     "_id": "000000000000000000000002",
-    "firstName": "Kasia",
+    "email": "kasia@miroartdesign.com",
     "username": "MiroArt&Design",
     "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
   },
   {
     "_id": "000000000000000000000003",
-    "firstName": "Ron",
+    "email": "ron@macinnis-company.com",
     "username": "MacInnisCompany",
     "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
   },
   {
     "_id": "000000000000000000000004",
-    "firstName": "Jan",
+    "email": "beachmeadows@icloud.com",
     "username": "PrincessMeadows",
     "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
   },
   {
     "_id": "000000000000000000000005",
-    "firstName": "Ellis",
+    "email": "ellis@gmail.com",
     "username": "TheFuture",
     "password": "$2a$10$.X0OXaJHoXQNkYBKR3VHreQBLhHfFOKujQe1pwi4rnfAL5lJ4sQqC"
 
