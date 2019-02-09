@@ -78,16 +78,16 @@ router.post('/entries', (req, res, next) => {
   const topType = type.charAt(0).toUpperCase() + type.slice(1);
   return UserStats.findOne({userId})
     .then(stats => {
-      stats[`${type}Entries`].push(newEntry);
+      stats[`${type}Entries`].unshift(newEntry);
       stats[`${type}Points`] += 25;
       stats[`${type}EntriesCount`] += 1;
       stats.totalPoints += 25;
       stats.totalEntries += 1;
       if (stats.recentEntries.length < 10) {
-        stats.recentEntries.push(newEntry);
+        stats.recentEntries.unshift(newEntry);
       } else if (stats.recentEntries === 10) {
-        stats.recentEntries.shift();
-        stats.recentEntries.push(newEntry);
+        stats.recentEntries.pop();
+        stats.recentEntries.unshift(newEntry);
       }
       tpUser = {
         userId: stats.userId,
@@ -113,18 +113,18 @@ router.post('/entries', (req, res, next) => {
           gs.entryCount += 1;
           gs.points += 25;
           if (gs.recentEntries.length < 25) {
-            gs.recentEntries.push(newEntry);
-          } else if (gs.recentEntries === 25) {
-            gs.recentEntries.shift();
-            gs.recentEntries.push(newEntry);
+            gs.recentEntries.unshift(newEntry);
+          } else if (gs.recentEntries.length === 25) {
+            gs.recentEntries.pop();
+            gs.recentEntries.unshift(newEntry);
           }
           gs[`${type}EntryCount`] += 1;
           gs[`${type}Points`] += 25;
           if (gs[`${type}RecentEntries`].length < 25) {
-            gs[`${type}RecentEntries`].push(newEntry);
+            gs[`${type}RecentEntries`].unshift(newEntry);
           } else if (gs[`${type}RecentEntries`].length === 25) {
-            gs[`${type}RecentEntries`].shift();
-            gs[`${type}RecentEntries`].push(newEntry);
+            gs[`${type}RecentEntries`].pop();
+            gs[`${type}RecentEntries`].unshift(newEntry);
           }
           return gs.save();
         });
@@ -135,18 +135,18 @@ router.post('/entries', (req, res, next) => {
           cs.entryCount += 1;
           cs.points += 25;
           if (cs.recentEntries.length < 25) {
-            cs.recentEntries.push(newEntry);
+            cs.recentEntries.unshift(newEntry);
           } else if (cs.recentEntries.length === 25) {
-            cs.recentEntries.shift();
-            cs.recentEntries.push(newEntry);
+            cs.recentEntries.pop();
+            cs.recentEntries.unshift(newEntry);
           }
           cs[`${type}EntryCount`] += 1;
           cs[`${type}Points`] += 25;
           if (cs[`${type}Entries`].length < 25) {
-            cs[`${type}Entries`].push(newEntry);
+            cs[`${type}Entries`].unshift(newEntry);
           } else if (cs[`${type}Entries`].length === 25) {
-            cs[`${type}Entries`].shift();
-            cs[`${type}Entries`].push(newEntry);
+            cs[`${type}Entries`].pop();
+            cs[`${type}Entries`].unshift(newEntry);
           }
           return cs.save();
         });
@@ -157,7 +157,7 @@ router.post('/entries', (req, res, next) => {
           .then(ss => {
             ss.entryCount += 1;
             ss.points += 25;
-            ss.entries.push(newEntry);
+            ss.entries.unshift(newEntry);
             return ss.save();
           });
       }
@@ -168,7 +168,7 @@ router.post('/entries', (req, res, next) => {
           .then(os => {
             os.entryCount += 1;
             os.points += 25;
-            os.entries.push(newEntry);
+            os.entries.unshift(newEntry);
             return os.save(); 
           });
       }
