@@ -85,7 +85,7 @@ router.post('/entries', (req, res, next) => {
       stats.totalEntries += 1;
       if (stats.recentEntries.length < 10) {
         stats.recentEntries.unshift(newEntry);
-      } else if (stats.recentEntries === 10) {
+      } else if (stats.recentEntries.length === 10) {
         stats.recentEntries.pop();
         stats.recentEntries.unshift(newEntry);
       }
