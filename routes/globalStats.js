@@ -40,26 +40,32 @@ router.get('/globalstats', (req, res, next) => {
       return OceanSchema.find();
     })
     .then(oceans => {
+      const artic = oceans.find(obj => obj.ocean === 'Artic');
+      const atlantic = oceans.find(obj => obj.ocean === 'Atlantic');
+      const indian = oceans.find(obj => obj.ocean === 'Indian');
+      const pacific = oceans.find(obj => obj.ocean === 'Pacific');
+      const southern = oceans.find(obj => obj.ocean === 'Southern');
+
       returnObj.oceans = {
         artic: {
-          entryCount: oceans[0].entryCount,
-          points: oceans[0].points
+          entryCount: artic.entryCount,
+          points: artic.points
         },
         atlantic: {
-          entryCount: oceans[1].entryCount,
-          points: oceans[1].points
+          entryCount: atlantic.entryCount,
+          points: atlantic.points
         },
         indian: {
-          entryCount: oceans[2].entryCount,
-          points: oceans[2].points
+          entryCount: indian.entryCount,
+          points: indian.points
         },
         pacific: {
-          entryCount: oceans[3].entryCount,
-          points: oceans[3].points
+          entryCount: pacific.entryCount,
+          points: pacific.points
         },
         southern: {
-          entryCount: oceans[4].entryCount,
-          points: oceans[4].points
+          entryCount: southern.entryCount,
+          points: southern.points
         }
       };
       return TopUserSchema.findOne();
