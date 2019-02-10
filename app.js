@@ -51,7 +51,6 @@ app.use('/api', jwtAuth, globalStatsRouter);
 
 /*=======Custom 404 Not Found route handler=======*/
 app.use((req, res, next) => {
-  console.log('HEY I AM HERE APP')
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
