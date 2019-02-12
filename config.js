@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
   PORT: process.env.PORT || 8080,
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://mkqnoikarlerolrs:p7hbol504axbzudg@ds133095-a0.mlab.com:33095,ds133095-a1.mlab.com:33095/functionearth?replicaSet=rs-ds133095';
+  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://mkqnoikarlerolrs:p7hbol504axbzudg@ds133095-a0.mlab.com:33095,ds133095-a1.mlab.com:33095/functionearth?replicaSet=rs-ds133095',
   // 'mongodb://localhost/function-earth',
   //'mongodb://mkqnoikarlerolrs:p7hbol504axbzudg@ds243963.mlab.com:43963/function-earth',
 
