@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const UserStats = require('../models/user-stats');
 const states = require('./../utils/states');
-const USLocation = require('./../models/usLocation');
+// const USLocation = require('./../models/usLocation');
 const countries = require('./../db/countries.json');
 const countryCodes = require('./../db/countryCodes.json');
 
@@ -223,7 +223,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
     });
   }
   // VALIDATE COUNTRY 
-  let Country = '';
+  // let Country = '';
   if (country.length > 2) {
     country = country.trim()
       .toLowerCase()

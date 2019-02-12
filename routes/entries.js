@@ -102,7 +102,7 @@ router.post('/entries', (req, res, next) => {
         country: stats.country,
         [`${type}Points`]: stats[`${type}Points`],
         [`${type}EntriesCount`]: stats[`${type}EntriesCount`]
-      }
+      };
       username = stats.username;
       return stats.save();
     })
