@@ -61,10 +61,11 @@ router.post('/users', (req, res, next) => {
   const sizedFields = {
     email: {
       min: 5,
-      max: 72
+      max: 50
     },
     username: {
-      min: 1
+      min: 3,
+      max: 25
     },
     password: {
       min: 8,
@@ -81,15 +82,14 @@ router.post('/users', (req, res, next) => {
       'max' in sizedFields[field] &&
             req.body[field].trim().length > sizedFields[field].max
   );
-
   if (tooSmallField || tooLargeField) {
     return res.status(422).json({
       code: 422,
       reason: 'ValidationError',
       message: tooSmallField
-        ? `Must be at least ${sizedFields[tooSmallField]
+        ? `${tooSmallField.toUpperCase()} must be at least ${sizedFields[tooSmallField]
           .min} characters long`
-        : `Must be at most ${sizedFields[tooLargeField]
+        : `${tooSmallField.toUpperCase()} must be at most ${sizedFields[tooLargeField]
           .max} characters long`,
       location: tooSmallField || tooLargeField
     });
@@ -215,9 +215,9 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       code: 422,
       reason: 'ValidationError',
       message: tooSmallField
-        ? `Must be at least ${sizedFields[tooSmallField]
+        ? `${tooSmallField.toUpperCase()} must be at least ${sizedFields[tooSmallField]
           .min} characters long`
-        : `Must be at most ${sizedFields[tooLargeField]
+        : `${tooSmallField.toUpperCase()} must be at most ${sizedFields[tooLargeField]
           .max} characters long`,
       location: tooSmallField || tooLargeField
     });
