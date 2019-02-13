@@ -222,6 +222,7 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: tooSmallField || tooLargeField
     });
   }
+  country = country.toUpperCase();
   if (country === 'USA') {
     country = 'US';
   }

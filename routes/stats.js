@@ -18,7 +18,16 @@ router.get('/stats', (req, res, next) => {
   }
   return UserStats.findOne({userId})
     .then(statsObject => {
-      res.json(statsObject);
+      if (statsObject === null) {
+        return res.status(400).json({
+          code: 422,
+          reason: 'User stats object not in db',
+          message: 'no user stats object in db',
+          location: 'stats'
+        });
+      } else {
+        res.json(statsObject);
+      }
     })
     .catch(err => {
       if (err.reason === 'Error GET /stats/mystats') {
