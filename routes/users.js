@@ -222,6 +222,9 @@ router.post('/users/stats', jwtAuth, (req,res,next)=>{
       location: tooSmallField || tooLargeField
     });
   }
+  if (country === 'USA') {
+    country = 'US';
+  }
   // VALIDATE COUNTRY 
   // let Country = '';
   if (country.length > 2) {
