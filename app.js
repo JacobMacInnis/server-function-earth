@@ -15,6 +15,7 @@ const authRouter = require('./routes/auth');
 const statsRouter = require('./routes/stats');
 const entriesRouter = require('./routes/entries');
 const globalStatsRouter = require('./routes/globalStats');
+const supportRouter = require('./routes/support');
 
 /*=========Create Express Application========*/
 const app = express();
@@ -43,6 +44,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 /*=======Routing=======*/
 app.get('/api/test', (req, res) => res.send('Hello World!'));
+app.use('/api/support', supportRouter);
 app.use('/api', usersRouter);
 app.use('/api/auth', authRouter);
 app.use('/api', jwtAuth, statsRouter);

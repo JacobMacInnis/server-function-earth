@@ -11,7 +11,9 @@ module.exports = {
   TEST_MONGODB_URI: process.env.TEST_MONGODB_URI || 'mongodb://localhost/function-earth-test',
   CLIENT_ORIGIN: process.env.NODE_ENV || 'http://localhost:3000' || 'http://10.1.10.156:19001' || 'http://localhost:19000',
   JWT_SECRET: process.env.JWT_SECRET,
-  JWT_EXPIRY: process.env.JWT_EXPIRY || '7d'
+  JWT_EXPIRY: process.env.JWT_EXPIRY || '7d',
+  MJ_APIKEY_PUBLIC: process.env.MJ_APIKEY_PUBLIC || 'ec6dffb7249a27bcadabe3801ed1884b',
+  MJ_APIKEY_PRIVATE: process.env.MJ_APIKEY_PRIVATE || 'b09837e7cd7beac3d155848254244a1d'
 };
 
 
